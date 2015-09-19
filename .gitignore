@@ -1,0 +1,6 @@
+.Rproj.user
+.Rhistory
+.RData
+libs
+week2/specdata
+week2/packrat/lib*/
