@@ -1,6 +1,8 @@
 .Rproj.user
 .Rhistory
 .RData
+.config
+.rstudio
 libs
 week2/specdata
 week2/packrat/lib*/
