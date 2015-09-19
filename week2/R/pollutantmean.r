@@ -1,9 +1,31 @@
 pollutantmean <- function(directory, pollutant, id = 1:332) {
-  rawData <- 0
+  rawData = c() 
   for (file in normalizedFiles(directory,id)) { 
-    rawData <- read.csv(file)  
+    
+    tableData <- read.csv(file) 
+    column <- 2
+    switch(pollutant,
+           
+           "sulfate"={
+             
+             column <- 2
+             
+             },
+           
+           "nitrate"={
+             
+             column <- 3
+           
+             })
+    tempData <- tableData[, column]
+    usefulData <- complete.cases(tempData)
+    usefulData <-tempData[usefulData]
+   # print(usefulData[1:10])
+    for (i in 1:length(usefulData)) 
+      rawData <-c(rawData,usefulData[[i]])
+    
   }
-  
+  print(mean(rawData))
 }
 
 normalizedFiles <- function(directory, ids = 1:332){
